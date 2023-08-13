@@ -1,0 +1,35 @@
+https://www.codetree.ai/missions/2/problems/fibonacci-number?utm_source=clipboard&utm_medium=text
+
+## 메모이제이션 방식(Top-Down방식)
+```python
+n = int(input())
+
+memo = [-1 for _ in range(n+1)]
+def fibo(n):
+    
+    if memo[n] != -1:
+        return memo[n]
+    if n <= 2:
+        memo[n] = 1
+    
+    else:
+        memo[n] = fibo(n-1) + fibo(n-2)
+    return memo[n]
+
+print(fibo(n))
+```
+
+## Tabulation 방식 (Bottom-Up방식)
+``` python
+n = int(input())
+MAX_NUM = 45
+dp = [0 for _ in range(MAX_NUM + 1)]
+
+dp[1] = dp[2] = 1
+for i in range(3, 1+n):
+    dp[i] = dp[i-1] + dp[i-2]
+
+print(dp[n])
+
+```
+
